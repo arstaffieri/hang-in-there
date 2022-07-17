@@ -197,6 +197,5 @@ function showCreatedPoster(event) {
 
 
 function savePoster() {
-  savedPosters.push(currentPoster)
-  console.log(savedPosters)
+  savedPosters.push(currentPoster);
 }

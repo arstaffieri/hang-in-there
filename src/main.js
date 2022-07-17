@@ -120,9 +120,7 @@ var currentPoster;
 
 
 // event listeners go here 👇
-showRandomButton.addEventListener("click", function() {
-  displayPoster(getRandomPoster());
-});
+showRandomButton.addEventListener("click", showRandomPoster);
 
 showFormButton.addEventListener("click", makeYourOwnPoster);
 
@@ -152,7 +150,7 @@ function getRandomPoster() {
     titles[getRandomIndex(titles)],
     quotes[getRandomIndex(quotes)]
   )
-  return poster
+  return poster;
 }
 
 function displayPoster(poster) {
@@ -163,6 +161,10 @@ function displayPoster(poster) {
 }
 
 displayPoster(getRandomPoster());
+
+function showRandomPoster() {
+  displayPoster(getRandomPoster());
+}
 
 function makeYourOwnPoster() {
   mainPoster.classList.add("hidden");
@@ -188,16 +190,13 @@ function showCreatedPoster(event) {
   displayPoster(myPoster);
 
   formPage.classList.add("hidden");
-
   mainPoster.classList.remove("hidden");
 
   images.push(myPoster.imageURL);
-
   titles.push(myPoster.title);
-
   quotes.push(myPoster.quote);
 
-  currentPoster = myPoster
+  currentPoster = myPoster;
 
 }
 

@@ -230,8 +230,8 @@ function deletePoster() {
   }
   for (var j = 0; j < savedPosters.length; j++) {
    if (posters[i] === savedPosters[j]) {
-      savedPosters[j].splice(i, 1)
+      savedPosters[j].splice(i, 1);
     }
   }
-  return savedPosters
+  return savedPosters;
 }

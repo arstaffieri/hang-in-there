@@ -182,23 +182,32 @@ function returnToMain() {
   }
 };
 
+function createUserPoster() {
+  var poster = new Poster(userPosterImage.value, userPosterTitle.value, userPosterQuote.value);
+
+  return poster;
+}
+
+function pushToArrays() {
+  var poster = createUserPoster();
+
+  images.push(poster.imageURL);
+  titles.push(poster.title);
+  quotes.push(poster.quote);
+}
+
+function changeView() {
+  formPage.classList.add('hidden');
+  mainPoster.classList.remove('hidden');
+}
+
 function showCreatedPoster(event) {
   event.preventDefault();
+  pushToArrays();
+  changeView();
+  displayPoster(createUserPoster());
+} 
 
-  var myPoster = new Poster(userPosterImage.value, userPosterTitle.value, userPosterQuote.value);
-
-  displayPoster(myPoster);
-
-  formPage.classList.add("hidden");
-  mainPoster.classList.remove("hidden");
-
-  images.push(myPoster.imageURL);
-  titles.push(myPoster.title);
-  quotes.push(myPoster.quote);
-
-  currentPoster = myPoster;
-
-}
 
 function savePoster() {
   var isUnique = true;

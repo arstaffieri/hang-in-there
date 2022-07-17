@@ -14,6 +14,7 @@ var showMyPosterButton = document.querySelector('.make-poster');
 var userPosterImage = document.querySelector('#poster-image-url');
 var userPosterTitle = document.querySelector('#poster-title');
 var userPosterQuote = document.querySelector('#poster-quote');
+var savePosterButton = document.querySelector('.save-poster');
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -131,6 +132,7 @@ backToMainButton.addEventListener("click", returnToMain);
 
 showMyPosterButton.addEventListener("click", showCreatedPoster);
 
+savePosterButton.addEventListener("click", savePoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -151,10 +153,10 @@ function displayPoster(poster) {
   posterImage.setAttribute('src', poster.imageURL);
   posterTitle.innerText = poster.title;
   posterQuote.innerText = poster.quote;
-  currentPoster = poster
+  currentPoster = poster;
 }
 
-displayPoster(getRandomPoster())
+displayPoster(getRandomPoster());
 
 function makeYourOwnPoster() {
   mainPoster.classList.add("hidden");
@@ -189,5 +191,11 @@ function showCreatedPoster(event) {
 
   quotes.push(myPoster.quote);
 
+  currentPoster = myPoster
+
 }
 
+
+function savePoster() {
+  savedPosters.push(currentPoster);
+}

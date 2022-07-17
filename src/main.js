@@ -16,6 +16,7 @@ var userPosterTitle = document.querySelector('#poster-title');
 var userPosterQuote = document.querySelector('#poster-quote');
 var savePosterButton = document.querySelector('.save-poster');
 var showGrid = document.querySelector('.saved-posters-grid');
+var posters = document.querySelectorAll('.poster'); //comes with node list
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -137,6 +138,8 @@ savePosterButton.addEventListener("click", savePoster);
 
 savedPageButton.addEventListener("click", showSavedPosters);
 
+showGrid.addEventListener("dblclick", deletePoster);
+
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
@@ -175,7 +178,7 @@ function returnToMain() {
   if (mainPoster.classList.contains('hidden')) {
     mainPoster.classList.remove('hidden');
   }
-}
+};
 
 function showCreatedPoster(event) {
   event.preventDefault();
@@ -204,8 +207,8 @@ function savePoster() {
   for (var i = 0; i < savedPosters.length; i++) {
     if (currentPoster.id === savedPosters[i].id) {
       isUnique = false;
-    } 
-  } 
+    }
+  }
   if (isUnique) {
     savedPosters.push(currentPoster);
   }
@@ -219,4 +222,16 @@ function showSavedPosters() {
     <h3 class="poster-quote">${savedPosters[i].quote}</h3>
   </article>`;
   }
+}
+
+function deletePoster() {
+  for (var i= 1; i < posters.length; i++) {
+    showGrid.remove(posters[i]);
+  }
+  for (var j = 0; j < savedPosters.length; j++) {
+   if (posters[i] === savedPosters[j]) {
+      savedPosters[j].splice(i, 1)
+    }
+  }
+  return savedPosters
 }

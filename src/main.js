@@ -182,4 +182,12 @@ function showCreatedPoster(event) {
   formPage.classList.add("hidden");
 
   mainPoster.classList.remove("hidden");
+
+  images.push(myPoster.imageURL);
+
+  titles.push(myPoster.title);
+
+  quotes.push(myPoster.quote);
+
 }
+

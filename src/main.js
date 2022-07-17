@@ -195,7 +195,16 @@ function showCreatedPoster(event) {
 
 }
 
-
 function savePoster() {
-  savedPosters.push(currentPoster);
+  var isUnique = true;
+
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (currentPoster.id === savedPosters[i].id) {
+      isUnique = false;
+    } 
+  } 
+  if (isUnique) {
+    savedPosters.push(currentPoster);
+  }
 }
+
